@@ -9,3 +9,4 @@ The child will make a count of the occurrence of the 26 letters of the alphabet 
 displaying it on video on a single line. This statistic will be sent to the parent P process through a single message.
 The father, received all the statistics, will display a video a general statistics given by the sum of the aforesaid and, in
 in the case of a maximum without ex-aequo, he will decide the letter of the most used alphabet's character.</p>
+<img src="https://imgur.com/LP2fVv3" alt="">
