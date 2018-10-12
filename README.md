@@ -1,7 +1,7 @@
 # UNIX-OS-Apps
 A collection of system calls for the OS Labotory done at the University. Each project is the exam's solution.
 
-<b>alpha-stats</b><br>
+<b>alpha-stats</b>
 <p style="float: left">This program will create as many children's process as the number of files on the command line.
 The process will communicate each other by a messages' queue.
 Each child T-n will read the F-n file, mapping the contents of files in its own address space.
