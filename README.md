@@ -47,30 +47,30 @@ The child process will read the contents of the text file indicated as the only 
 ____________________________________________________________________________________________________________________________
 
 <b>cpu-monitor</b><br>
-<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/cpum.png" align="right" width="150" alt="">
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/cpum.png" align="right" width="200" alt="">
 The program, through the use of the special text file <b>/proc/stat</b> of the file-system virtual <b>/proc/</b>,
 collects samples on the use of the CPU compartment of the system on which it is executed. 
 A number of samples equal to those that are possibly collected is collected specified on the 
 command line (30 by default) and then displayed on screen via a simple graph and in percentage terms.
-The first line of the special text file <b>/proc/stat</b> has the following format:
-cpu 10403824 223264 2676976 12200724 275004 0 21309 0 0 838
+The first line of the special text file <b>/proc/stat</b> has the following format:<br>
+<b>cpu 10403824 223264 2676976 12200724 275004 0 21309 0 0 838</b><br>
 where the numbers are cumulative units of time units (called jiffies) expenses from the various
-core, respectively, in:
-• <b>user</b>: normal processes in user mode;
-• <b>nice</b>: processes, under nice, in user mode;
-• <b>system</b>: processes in kernel mode;
-• <b>idle</b>: moments of inactivity;
-• <b>iowait</b>: pending completion of I / O;
-• <b>irq</b>: in the management of hardware interrupts;
-• <b>softirq</b>: in the management of software interrupts.
+core, respectively, in:<br>
+• <b>user</b>: normal processes in user mode;<br>
+• <b>nice</b>: processes, under nice, in user mode;<br>
+• <b>system</b>: processes in kernel mode;<br>
+• <b>idle</b>: moments of inactivity;<br>
+• <b>iowait</b>: pending completion of I/O;<br>
+• <b>irq</b>: in the management of hardware interrupts;<br>
+• <b>softirq</b>: in the management of software interrupts.<br>
 For simplicity, we will consider only the time used in mode user (user), kernel mode (system) and idle mode (idle).
 The parent F program, when it starts, will create three child processes: Sampler, Analyzer and Plotter. Children will communicate with each other only through a message queue created by the parent. Are expected two types of messages:
-• raw msg: they carry 3 integers that represent cumulative data (user,system,idle) taken directly from the /proc/stat file;
-• delta messages: carry 2 numbers in comma mobile that represent, respectively, the percentages of use in user mode and in kernel mode between a sample and the next.
-The roles of the three child processes will be as follows:
-• Sampler process, reading from the file /proc/stat, samples the whole samples (user, system, idle) required and sends them with separate raw messages to the Analyzer child; Each sample is taken at a distance of one second from each other;
-• Analyzer process considers the differences between the various raw samples received and extrapolates the percentages of use of the CPU compartment in user mode and kernel mode in the last second; this information comes gradually sent to the son Plotter through delta messages;
-• Plotter process displays the received delta type data on the standard output (one row per pair) with a simple chart on 60 columns and in terms percentages (see example below).
+• <b>raw msg</b>: they carry 3 integers that represent cumulative data (user,system,idle) taken directly from the /proc/stat file;<br>
+• <b>delta messages</b>: carry 2 numbers in comma mobile that represent, respectively, the percentages of use in user mode and in kernel mode between a sample and the next.<br>
+The roles of the three child processes will be as follows:<br>
+• <b>Sampler</b> process, reading from the file /proc/stat, samples the whole samples (user, system, idle) required and sends them with separate raw messages to the Analyzer child; Each sample is taken at a distance of one second from each other;<br>
+• <b>Analyzer</b> process considers the differences between the various raw samples received and extrapolates the percentages of use of the CPU compartment in user mode and kernel mode in the last second; this information comes gradually sent to the son Plotter through delta messages;<br>
+• <b>Plotter</b> process displays the received delta type data on the standard output (one row per pair) with a simple chart on 60 columns and in terms percentages (see example below).
 
 
 <b>Usage:</b>
