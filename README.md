@@ -17,3 +17,18 @@ in the case of a maximum without ex-aequo, he will decide the letter of the most
 <img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/asm-u.png" width="700" alt="">
 
 _______________________________________________________________________________________________________________________________
+
+<b>alpha-stats-sem</b><br>
+This version uses a semaphore and shared memory. 
+Each child will read the contents of the assigned file using the mechanism of
+mapping of files to memory: for each alphabetic character (lowercase and uppercase)
+encountered will increase the relative counter in the segment by one unit shared memory: 
+at each increment it will have to wait for a random pause of at most one second before being 
+able to resume the scan.
+When all children have finished processing their files, the father will calculate and display 
+the frequencies on the screen percentages of occurrence of the letters.
+
+<b>Usage:</b>
+
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/ass-u.png" width="700" alt="">
+____________________________________________________________________________________________________________________________
