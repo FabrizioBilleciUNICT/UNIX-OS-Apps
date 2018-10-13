@@ -1,5 +1,5 @@
 # UNIX-OS-Apps
-A collection of system calls for the OS Labotory done at the University. Each project is the exam's solution.
+A collection of system calls for the OS Laboratory done at the University. Each project is the exam's solution.
 <br>
 
 <b>alpha-stats</b><br>
