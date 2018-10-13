@@ -64,7 +64,7 @@ core, respectively, in:<br>
 • <b>irq</b>: in the management of hardware interrupts;<br>
 • <b>softirq</b>: in the management of software interrupts.<br>
 For simplicity, we will consider only the time used in mode user (user), kernel mode (system) and idle mode (idle).
-The parent F program, when it starts, will create three child processes: Sampler, Analyzer and Plotter. Children will communicate with each other only through a message queue created by the parent. Are expected two types of messages:
+The parent F program, when it starts, will create three child processes: Sampler, Analyzer and Plotter. Children will communicate with each other only through a message queue created by the parent. Are expected two types of messages:<br>
 • <b>raw msg</b>: they carry 3 integers that represent cumulative data (user,system,idle) taken directly from the /proc/stat file;<br>
 • <b>delta messages</b>: carry 2 numbers in comma mobile that represent, respectively, the percentages of use in user mode and in kernel mode between a sample and the next.<br>
 The roles of the three child processes will be as follows:<br>
