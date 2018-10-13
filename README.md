@@ -16,7 +16,7 @@ in the case of a maximum without ex-aequo, he will decide the letter of the most
 
 <img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/asm-u.png" width="700" alt="">
 
-_______________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________
 
 <b>alpha-stats-sem</b><br>
 This version uses a semaphore and shared memory. 
@@ -31,4 +31,15 @@ the frequencies on the screen percentages of occurrence of the letters.
 <b>Usage:</b>
 
 <img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/ass-u.png" width="700" alt="">
-____________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________
+
+<b>another-wc</b><br>
+This program will start a child process when it starts. 
+This process will communicate with the parent through a large shared memory segment with more than 2 bytes. 
+For a correct communication the use of semaphores will be necessary.
+The child process will read the contents of the text file indicated as the only parameter (or from the standard input in its absence) and pass its contents to the parent process byte-by-byte. The father will have to process the content received by doing an analysis similar to that performed by the UNIX WC command: counting the number of characters, words and lines. Consider as space delimiters the spaces / tabs and the main punctuation marks (.,;:!).
+
+<b>Usage:</b>
+
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/awc-u.png" width="700" alt="">
+_____________________________________________________________________________________________________________________________
