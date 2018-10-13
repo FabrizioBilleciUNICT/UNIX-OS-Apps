@@ -31,6 +31,7 @@ the frequencies on the screen percentages of occurrence of the letters.
 <b>Usage:</b>
 
 <img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/ass-u.png" width="700" alt="">
+
 _____________________________________________________________________________________________________________________________
 
 <b>another-wc</b><br>
@@ -42,4 +43,6 @@ The child process will read the contents of the text file indicated as the only 
 <b>Usage:</b>
 
 <img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/awc-u.png" width="700" alt="">
+
 _____________________________________________________________________________________________________________________________
+
