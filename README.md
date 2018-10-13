@@ -47,7 +47,7 @@ The child process will read the contents of the text file indicated as the only 
 ____________________________________________________________________________________________________________________________
 
 <b>cpu-monitor</b><br>
-<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/cpu-monitor.png" align="right" width="150" alt="">
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/cpum.png" align="right" width="150" alt="">
 The program, through the use of the special text file <b>/proc/stat</b> of the file-system virtual <b>/proc/</b>,
 collects samples on the use of the CPU compartment of the system on which it is executed. 
 A number of samples equal to those that are possibly collected is collected specified on the 
