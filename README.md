@@ -78,6 +78,22 @@ The roles of the three child processes will be as follows:<br>
 
 ____________________________________________________________________________________________________________________________
 
+<b>fifo-palindrome-filter</b><br>
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/fpf.png" align="right" width="200" alt="">
+The program must act as a filter to select, among the input words, those that represent a palindroma word in case insensitive (ignoring the differences between upper and lower case). The expected input is a list of words (one per line)
+from the specified fle on the command line or from the standard input in its absence. The output result of the selection will be reversed on the standard output. The program at its start will create two processes for R and W. The three
+processes will communicate via two named pipes (FIFO and R → P and P → W).<br>
+The roles of the three processes will be as follows:<br>
+•<b>R</b> will read the list from the indicated file using the mapping of the fle in memory, validate and pass it on to his father P through theirs named pipe;<br>
+•<b>P</b> will analyze the content received from R, word by word, discarding those that do not they represent palindromes. The words palindrome will come sent to the W process through their respective named pipe;<br>
+•<b>W</b> will write the words received from the father on the standard output. Words that have been output will have to have the "uppercase/lowercase" structure unaltered compared to the input.
+
+<b>Usage:</b>
+
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/fpf-u.png" width="700" alt="">
+
+____________________________________________________________________________________________________________________________
+
 <b>file-shell</b><br>
 <img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/fls.png" align="right" width="200" alt="">
 At the start of this program, a non-predetermined number of processes will be created equal to that of the directories indicated on the command line. These processes will communicate between them with a message queue.
