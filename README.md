@@ -132,8 +132,8 @@ name) will be inserted into the shared memory segment: one object at a time. Rec
 ____________________________________________________________________________________________________________________________
 
 <b>my-du-s</b><br>
-<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/mds.png" align="right" width="150" alt="">
-
+The program will simulate the behavior of the du-s command-option: this, for each indicated path, calculates the disk space occupied by files contained therein recursively. The parent process, when it starts, will create a single child <b>Stater</b> process and a group of <b>Scanner</b> processes (a separate process for each root path indicated on the line of command). The father and all the children will communicate only through a segment of shared memory with the help of a certain number of semaphores. Scanner processes will have to act in parallel. Each child Scanner will perform the recursive scan of the root path a he assigned: for every object encountered, different from a directory, he will send his
+identifying pathname to the Stater process. The Stater process, for every request received, will determine the disk space occupied by the object using the <b>st_blocks</b> field of the record reported by call stat. This information must be sent to the father which will count total employment, distinct for each root path, reporting to end on its standard-output all totals (like the du -s command).
 
 <b>Usage:</b>
 
@@ -142,8 +142,12 @@ ________________________________________________________________________________
 ____________________________________________________________________________________________________________________________
 
 <b>my-fgrep</b><br>
-<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/mfg.png" align="right" width="150" alt="">
-
+The program emulates the behavior of the homonymous shell command: reads sequentially the contents of the indicated files and select the lines containing the word specified; with the <b>v</b> option the control is reversed (the rows are selected do NOT contain the word); with the option <b>i</b> the control becomes case-insensitive; every line selected is shown in the standard output using the source file name as a prefix.<br>
+The parent process will be responsible for creating the following children:<br>
+• <b>Reader</b> for each file indicated on the command line: each of them will read the assigned file and will send its contents, line by line, to the Filterer process; these children must operate in a serial way (for example: the second will be activated only when the first one has finished, and so on ...);<br>
+• Single process <b>Filterer</b>: for each line received will apply the selection criterion specified and will send the results rows, complete with prefix, back to the process original Father that will bring them back to the output.
+<br>
+The Reader children will communicate with the child Filterer through a message queue, created by Father: each message will contain a line of text and an indication of the file source (set maximum file and file path size). Child Filterer will communicate with Father through a pipe.
 
 <b>Usage:</b>
 
