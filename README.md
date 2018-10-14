@@ -72,9 +72,32 @@ The roles of the three child processes will be as follows:<br>
 • <b>Analyzer</b> process considers the differences between the various raw samples received and extrapolates the percentages of use of the CPU compartment in user mode and kernel mode in the last second; this information comes gradually sent to the son Plotter through delta messages;<br>
 • <b>Plotter</b> process displays the received delta type data on the standard output (one row per pair) with a simple chart on 60 columns and in terms percentages (see example below).
 
-
 <b>Usage:</b>
 
 <img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/cpum-u.png" width="700" alt="">
+
+____________________________________________________________________________________________________________________________
+
+<b>file-shell</b><br>
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/fls.png" align="right" width="200" alt="">
+At the start of this program, a non-predetermined number of processes will be created equal to that of the directories indicated on the command line. These processes will communicate between them with a message queue.
+The program will have to offer an interactive shell that will accept the following requests:<br>
+● <b>num-files n</b>: displays the number of regular files directly contained in the directory number n (no recursion);<br>
+● <b>total-size n</b>: displays the total size (in bytes) of regular files directly contained in the directory number n (no recursion);<br>
+● <b>search-char n character-file-name</b>: displays the number of occurrences of the character indicated (one byte) in the specified fle of the directory number n.<br>
+The program must respect the following constraints:<br>
+● Parent P process:<br>
+-will be the only one able to interact with the terminal e to be able to view messages;<br>
+-will never have to directly access the fle-system;<br>
+-will dialogue with the processes of D-n uniquely using messages;<br>
+● Process D-n:<br>
+-will not be able to display any message on the terminal;
+-will only be able to access your directory number n;
+-will use the mapping of the fle in memory to read the contents of the files regular;
+-will dialogue with the father only using the messages.
+
+<b>Usage:</b>
+
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/fls-u.png" width="700" alt="">
 
 ____________________________________________________________________________________________________________________________
