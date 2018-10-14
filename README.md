@@ -158,7 +158,12 @@ ________________________________________________________________________________
 
 <b>numbers-mod</b><br>
 <img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/nmd.png" align="right" width="150" alt="">
-
+The program must read a series of numbers from the input file specified (one per line) and will have to output them once the function <b>f(x) = x mod n</b>, where n is applied the module specified on the command line. The program at its start will create two child processes <b>Mod</b> and <b>Out</b>. The three processes will communicate only through a memory segment
+shared and a semaphore that the father will have to create and destroy. The segment will have to be big a sufficiency and organized to accommodate exactly 10 records of the type [number, type]. The semaphores they will have to be in optimal number to manage the coordination of the processes involved and be used appropriately.<br>
+The roles of the three processes will be as follows:<br>
+• <b>P</b> process will have to read the file specified by entering, for each number x read, the record [x, 0] in the shared buffer;<br>
+• <b>Mod</b> child process will have to extract from the shared buffer, as soon as they are available, records of the type [x, 0] and reinsert the same number of the type [f(x), 1];<br>
+• <b>Out</b> process will have to extract from the shared buffer, as soon as they are available, record of the type [y, 1] and output the number y.<br>
 
 <b>Usage:</b>
 
@@ -167,8 +172,10 @@ ________________________________________________________________________________
 ____________________________________________________________________________________________________________________________
 
 <b>sort-list</b><br>
-<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/slt.png" align="right" width="150" alt="">
-
+The program will read the specified text file, containing one word for each line, and output this reordered list (ascending alphanumeric order and case-insensitive). The father process, when it starts, will create 2 children: <b>Sorter</b> and <b>Comparer</b>. The two child processes they will communicate with each other using only one message queue, the father
+he will communicate with his son Sorter through a pipe. The Sorter process will have to read the text file, extracting the word list (one for each line) and will have to apply one some sorting algorithms; in the fundamental step of comparing 2 strings, it must always request the help of the Comparer process sending him a message with the 2 strings on and off
+getting back, with a second message, the result of the comparison (an integer). Once the sorting algorithm is applied, the Sorter process will have to pass, word for word, the list ordered to the father through the pipe, this will send it on the
+Single-output.
 
 <b>Usage:</b>
 
@@ -177,8 +184,13 @@ ________________________________________________________________________________
 ____________________________________________________________________________________________________________________________
 
 <b>words-filter</b><br>
-<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/wfl.png" align="right" width="150" alt="">
-
+The program will basically read the indicated text file and apply to each line a series of filters indicated on the command line. The final result will be shown on the standard output.<br>
+Each filter will have the following structure:<br>
+• <b>^word</b>: will look for the occurrences of "word" in each line and transform them using only capital letters;<br>
+• <b>_word</b>: will do the same but transforming them using only lowercase letters;<br>
+• <b>=word1,word2</b>: will look for every occurrence of "word1" and in each line will replace with "word2" (assume that the two words have the same length but verify it at run-time).<br>
+The parent process will first create as many Filter-n child processes as there are filters indicated on the command line. The father and the children will only communicate with a queue of messages created and destroyed by the first one.
+The father will read the indicated file line by line; read a line (assuming a length maximum) will forward it to the first child Filter-1 by encapsulating it in a message of size equal to the minimum necessary. Each child <b>Filter-n</b>, received a row, will apply its modification (for all occurrences present) and forward the result to following child Filter-(n+1). The last child will take care of sending the message back to the father who, after sending the result line on the standard output transformations, will move to the next line.
 
 <b>Usage:</b>
 
