@@ -117,3 +117,16 @@ The program must respect the following constraints:<br>
 <img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/fls-u.png" width="700" alt="">
 
 ____________________________________________________________________________________________________________________________
+
+<b>list-dirs</b><br>
+The program will essentially list, in some detail, the regular files and the sub-directories encountered when reading the specified folders. The parent process will create as many <b>Reader</b> child processes as the specified directories
+on his command line. He will also create two more children: <b>File-Consumer</b> and <b>Dir-Consumer</b>. The
+father and children communicate with a shared memory segment and coordinate with one certain number, minimal, of semaphores. The segment will contain a single record relative to a generic object of the file-system.<br>
+Each child <b>Reader</b> will scan (non-recursive) the specified directory: only regular files and ordinary directories will be considered (ignoring e ..). The information of a regular file (name and size in bytes) or of a directory (only
+name) will be inserted into the shared memory segment: one object at a time. Records relating to regular files will be extracted from the segment by the <b>File-Consumer</b> child; Those relating to directories instead of <b>Dir-Consumer</b>.
+
+<b>Usage:</b>
+
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/ldr-u.png" width="700" alt="">
+
+____________________________________________________________________________________________________________________________
