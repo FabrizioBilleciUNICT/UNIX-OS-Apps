@@ -130,3 +130,55 @@ name) will be inserted into the shared memory segment: one object at a time. Rec
 <img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/ldr-u.png" width="700" alt="">
 
 ____________________________________________________________________________________________________________________________
+
+<b>my-du-s</b><br>
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/mds.png" align="right" width="150" alt="">
+
+
+<b>Usage:</b>
+
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/mds-u.png" width="700" alt="">
+
+____________________________________________________________________________________________________________________________
+
+<b>my-fgrep</b><br>
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/mfg.png" align="right" width="150" alt="">
+
+
+<b>Usage:</b>
+
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/mfg-u.png" width="700" alt="">
+
+____________________________________________________________________________________________________________________________
+
+
+<b>numbers-mod</b><br>
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/nmd.png" align="right" width="150" alt="">
+
+
+<b>Usage:</b>
+
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/nmd-u.png" width="700" alt="">
+
+____________________________________________________________________________________________________________________________
+
+<b>sort-list</b><br>
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/slt.png" align="right" width="150" alt="">
+
+
+<b>Usage:</b>
+
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/slt-u.png" width="700" alt="">
+
+____________________________________________________________________________________________________________________________
+
+<b>words-filter</b><br>
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/wfl.png" align="right" width="150" alt="">
+
+
+<b>Usage:</b>
+
+<img src="https://github.com/FabrizioBilleciUNICT/UNIX-OS-Apps/blob/master/res/wfl-u.png" width="700" alt="">
+
+____________________________________________________________________________________________________________________________
+
